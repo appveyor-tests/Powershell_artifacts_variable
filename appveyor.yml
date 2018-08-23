@@ -1,11 +1,11 @@
 init:
- - appveyor version
+  - appveyor version
   - sh: echo $APPVEYOR_BUILD_WORKER_IMAGE
   - sh: echo $APPVEYOR_BUILD_WORKER_CLOUD
 
 build_script:
-  - echo "this is a test1" >foo1
-  - echo "this is a test2" >foo2
+  - sh: echo "this is a test1" >foo1
+  - sh: echo "this is a test2" >foo2
   - appveyor PushArtifact foo1
   - appveyor PushArtifact foo2
 
