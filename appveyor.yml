@@ -6,8 +6,10 @@ init:
 build_script:
   - sh: echo "this is a test1" >foo1
   - sh: echo "this is a test2" >foo2
-  - appveyor PushArtifact foo1
-  - appveyor PushArtifact foo2
+
+artifacts:
+  - path: foo1
+  - path: foo2
 
 test: off
 
