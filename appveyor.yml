@@ -19,5 +19,6 @@ deploy_script:
             Write-Host $artifactName 
             Write-Host $artifacts[$artifactName].path 
           }
-  - sh: sudo journalctl -u appveyor-build-agent.service  --no-pager
+  - sh: sudo journalctl -u appveyor-build-agent.service  --no-pager > buildagent.log
+  - appveyor PushArtifact buildagent.log 
   
