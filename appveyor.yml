@@ -20,7 +20,12 @@ deploy_script:
             Write-Host $artifacts[$artifactName].path 
           }
           $artifacts.GetType()
-          echo $artifacts.count
+          if ($artifacts.count -eq 2) {
+              Write-Host "2 artifacts enlisted"
+          } else {
+              Write-Host "artifacts variable does not contain 2 objects" -foreground red
+              exit 1
+          }
   - sh: sudo journalctl -u appveyor-build-agent.service  --no-pager > buildagent.log
   - appveyor PushArtifact buildagent.log 
   
