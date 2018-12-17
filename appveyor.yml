@@ -19,8 +19,8 @@ deploy_script:
             Write-Host $artifactName 
             Write-Host $artifacts[$artifactName].path 
           }
-          $artifactName.GetType()
-          echo $artifactName.count
+          $artifacts.GetType()
+          echo $artifacts.count
   - sh: sudo journalctl -u appveyor-build-agent.service  --no-pager > buildagent.log
   - appveyor PushArtifact buildagent.log 
   
